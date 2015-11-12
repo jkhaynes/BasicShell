@@ -1,3 +1,6 @@
+This is an implentation of a basic shell in C++. It includes foreground processes, piping, 
+redirection of standard input and output, exit, wait, and cd.
+
 src/
 * main.c : Writes the prompt "wsh: " to standard output.
            Reads a command line from standard input.
@@ -9,11 +12,6 @@ src/
                  Redirects output to file if appropriate.
                  Replaces the image of the created process with the desired command using execvp.
                  Waits for the process to terminate.
-
-* background.c : Creates a new process using fork.
-                 Redirects output to file if appropriate.
-                 Replaces the image of the created process with the desired command using execvp.
-                 Returns a new backJob structure with unfinished process info.
 
 * piped.c : Create a new process for each job using fork.
 			Replace the image of each process with the appropriate executable using execlp or execvp.
