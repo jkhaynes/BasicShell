@@ -1,0 +1,26 @@
+src/
+* main.c : Writes the prompt "wsh: " to standard output.
+           Reads a command line from standard input.
+           Executes the command.
+           Shows the status of background jobs (if any).
+           If the end of standard output hasn't been reached, starts over.
+			 
+* foreground.c : Creates a new process using fork.
+                 Redirects output to file if appropriate.
+                 Replaces the image of the created process with the desired command using execvp.
+                 Waits for the process to terminate.
+
+* background.c : Creates a new process using fork.
+                 Redirects output to file if appropriate.
+                 Replaces the image of the created process with the desired command using execvp.
+                 Returns a new backJob structure with unfinished process info.
+
+* piped.c : Create a new process for each job using fork.
+			Replace the image of each process with the appropriate executable using execlp or execvp.
+			Create n-1 pipes using pipe.
+			Re-direct the output of job i to the write end of pipe i.
+			Re-direct the input of job i to the read end pipe i-1.
+			Keep the input of job1 as standard input.
+			Keep the output of jobn as standard output.
+			Close any unnecessary file descriptors.
+			Wait for all jobs to terminate.
